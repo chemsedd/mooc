@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-model-utils = "==3.1.2"
+Django = "==2.2.7"
+pillow = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
