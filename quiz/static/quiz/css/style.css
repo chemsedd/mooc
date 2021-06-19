@@ -569,6 +569,8 @@ body {
   font-family: Poppins;
 }
 
+/* Headings */
+
 h1 {
   font-size: 3rem;
   line-height: 1;
@@ -582,6 +584,8 @@ h2 {
   --tw-text-opacity: 1;
   color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
+
+/* Inputs */
 
 input {
   padding-left: 1rem;
@@ -606,6 +610,8 @@ input:focus {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+/* Description lists */
+
 dl > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -613,6 +619,40 @@ dl > div {
 
 dt {
   font-weight: 700;
+}
+
+/* Tables */
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table > thead > tr > th {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+
+table > tbody > tr > td {
+  border-width: 1px;
+  --tw-bg-opacity: 1;
+  background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 
 .container {
@@ -678,6 +718,8 @@ dt {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+/* Buttons */
+
 .btn {
   display: flex;
   align-items: center;
@@ -734,6 +776,12 @@ dt {
 .btn-green {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.link {
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-text-opacity));
+  text-decoration: underline;
 }
 
 .sr-only {

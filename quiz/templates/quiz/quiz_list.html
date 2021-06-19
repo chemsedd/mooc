@@ -1,44 +1,48 @@
-{% extends 'base.html' %}
-{% load i18n %}
-{% load quiz_tags %}
-{% block title %}{% trans "All Quizzes" %}{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load i18n %} {% load quiz_tags %} {% block title
+%}{% trans "All Quizzes" %}{% block content %}
 <h2>{% trans "List of quizzes" %}</h2>
-    {% if quiz_list %}
-		<table class="table table-bordered table-striped">
+{% if quiz_list %}
+<table class="w-full table-fixed">
+  <thead>
+    <tr>
+      <th class="w-5/12">{% trans "Title" %}</th>
+      <th class="w-2/12">{% trans "Category" %}</th>
+      <th class="w-2/12">{% trans "Exam" %}</th>
+      <th class="w-1/12">{% trans "Single attempt" %}</th>
+      <th class="w-2/12"></th>
+    </tr>
+  </thead>
 
-		  <thead>
-			<tr>
-			  <th>{% trans "Title" %}</th>
-			  <th>{% trans "Category" %}</th>
-			  <th>{% trans "Exam" %}</th>
-			  <th>{% trans "Single attempt" %}</th>
-			  <th></th>
-			</tr>
-		  </thead>
+  <tbody>
+    {% for quiz in quiz_list %}
 
-		  <tbody>
+    <tr>
+      <td>{{ quiz.title }}</td>
+      <td>{{ quiz.category }}</td>
+      <td>
+        {% if quiz.exam_paper %}
+        <span class="text-white font-medium bg-green-500 rounded px-4 py-1"
+          >True</span
+        >
+        {% else %}
+        <span
+          class="text-white font-medium bg-red-500 rounded mx-auto px-4 py-1"
+          >False</span
+        >
+        {% endif %}
+      </td>
+      <td>{{ quiz.single_attempt }}</td>
+      <td>
+        <a class="link" href="{% url 'quiz_start_page' slug=quiz.url %}">
+          {% trans "View details" %}
+        </a>
+      </td>
+    </tr>
 
-        {% for quiz in quiz_list %}
+    {% endfor %}
+  </tbody>
+</table>
 
-  			<tr>
-			  <td>{{ quiz.title }}</td>
-			  <td>{{ quiz.category }}</td>
-			  <td>{{ quiz.exam_paper }}</td>
-			  <td>{{ quiz.single_attempt }}</td>
-			  <td>
-				<a href="{% url 'quiz_start_page' slug=quiz.url %}">
-				  {% trans "View details" %}
-				</a>
-			</tr>
-
-        {% endfor %}
-		  </tbody>
-
-		</table>
-
-	{% else %}
-        <p>{% trans "There are no available quizzes" %}.</p>
-    {% endif %}
-{% endblock %}
+{% else %}
+<p>{% trans "There are no available quizzes" %}.</p>
+{% endif %} {% endblock %}
