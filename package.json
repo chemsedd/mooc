@@ -1,0 +1,21 @@
+{
+  "name": "django-quiz-app",
+  "version": "1.0.0",
+  "description": "It is django based quiz app for multiple choice questions.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "postcss quiz/style.css -w -d quiz/static/quiz/css/ --verbose",
+    "build": "NODE_ENV=production postcss style.css -d quiz/static/quiz/css/ --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.2.6",
+    "cssnano": "^5.0.6",
+    "ctx": "^0.3.0",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.2"
+  }
+}
