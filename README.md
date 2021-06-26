@@ -18,7 +18,7 @@ It is django based quiz app for multiple choice questions.
 # Instructions 
 
 1) ### Installations
-  Make sure to have python version 3 install on you pc or laptop. 
+  Make sure to have python version 3 installed in your computer. 
   If not install it from [here](https://www.python.org) <br>
   **Clone repository** <br>
   `https://github.com/sswapnil2/django-quiz-app.git`<br>

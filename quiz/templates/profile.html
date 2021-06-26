@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="flex flex-col gap-y-6">
+  <h1>Profile Page</h1>
+  {% if user.is_authenticated %}
+  <div class="card card-blue-border">
+    <dl class="flex flex-col gap-y-2">
+      <div>
+        <dt>Username:</dt>
+        <dd>{{user.username}}</dd>
+      </div>
+      <div>
+        <dt>First name:</dt>
+        <dd>{{user.first_name}}</dd>
+      </div>
+      <div>
+        <dt>Last name:</dt>
+        <dd>{{user.last_name}}</dd>
+      </div>
+      <div>
+        <dt>Email:</dt>
+        <dd>{{user.email}}</dd>
+      </div>
+    </dl>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

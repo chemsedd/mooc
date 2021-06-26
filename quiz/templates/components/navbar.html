@@ -13,7 +13,7 @@
 >
   <a class="font-bold" href="{% url 'index' %}">Quiz App</a>
   <div class="inline-flex items-center justify-end">
-    <ul class="inline-flex items-center gap-x-2 px-4">
+    <ul class="inline-flex items-center divide-x-2 divide-opacity-50 divide-gray-500">
       {% if user.is_authenticated %}
       <li class="nav-item">
         <a href="{% url 'quiz_index' %}" class="nav-link">Quizzes</a>
@@ -21,16 +21,21 @@
       <li class="nav-item">
         <a href="{% url 'quiz_progress' %}" class="nav-link">Progress</a>
       </li>
+      <li class="nav-item">
+        <a href="{% url 'profile' %}" class="nav-link">Profile</a>
+      </li>
       {% endif %}
     </ul>
     <ul class="inline-flex items-center px-4">
-      <li class="nav-sign">
-        {% if user.is_authenticated %}
+      {% if user.is_authenticated %}
+      <li class="nav-signout">
         <a class="text-white font-medium" href="{% url 'logout' %}">logout</a>
-        {% else %}
-        <a class="text-white font-medium" href="{% url 'login' %}">Login</a>
-        {% endif %}
       </li>
+      {% else %}
+      <li class="nav-login">
+        <a class="text-white font-medium" href="{% url 'login' %}">Login</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

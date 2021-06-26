@@ -33,6 +33,7 @@ class SittingFilterTitleMixin(object):
 class QuizListView(ListView):
     model = Quiz
     # @login_required
+
     def get_queryset(self):
         queryset = super(QuizListView, self).get_queryset()
         return queryset.filter(draft=False)
@@ -109,7 +110,7 @@ class QuizMarkingList(QuizMarkerMixin, SittingFilterTitleMixin, ListView):
             queryset = queryset.filter(user__username__icontains=user_filter)
 
         return queryset
-    
+
     class Meta:
         pass
 
@@ -235,19 +236,23 @@ class QuizTake(FormView):
         return render(self.request, 'result.html', results)
 
 
-
-
 def index(request):
     return render(request, 'index.html', {})
 
 
+# user object
+USER = None
+
+
 def login_user(request):
+    global USER
 
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            USER = user
             login(request, user)
             messages.success(request, 'You have successfully logged in')
             return redirect("index")
@@ -264,3 +269,8 @@ def logout_user(request):
     print('logout function working')
     return redirect('login')
 
+
+@login_required
+def profile(request):
+    global USER
+    return render(request, "profile.html", {"user": USER})
