@@ -56,11 +56,15 @@
 @layer components {
   /* Navbar */
   .nav-item {
-    @apply text-gray-400 hover:text-white;
+    @apply text-gray-400 hover:text-white px-2;
   }
 
-  .nav-sign {
+  .nav-login {
     @apply bg-blue-700 hover:bg-blue-900 p-2 rounded-lg text-white;
+  }
+
+  .nav-signout {
+    @apply bg-red-700 hover:bg-red-900 p-2 rounded-lg text-white;
   }
 
   /* Buttons */
@@ -78,10 +82,28 @@
   }
 
   .btn-green {
-    @apply bg-green-500 hover:bg-green-800 text-white;
+    @apply bg-lime-600 hover:bg-lime-800 text-white;
   }
 
   .link {
     @apply text-blue-500 underline;
+  }
+
+  /* Cards */
+
+  .card {
+    @apply p-10 rounded-lg shadow-lg;
+  }
+
+  .card-blue-border {
+    @apply card border-b-4 border-blue-600;
+  }
+
+  .card-red-border {
+    @apply card border-b-4 border-red-600;
+  }
+
+  .card-green-border {
+    @apply card border-b-4 border-green-600;
   }
 }

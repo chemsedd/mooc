@@ -1,25 +1,15 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %} {% load static %}
+<div class="w-full">
+  <img
+    class="w-full h-40 rounded-lg shadow-lg object-cover object-center"
+    src="{% static 'quiz/imgs/index-1.jpg' %}"
+    alt="Index page image"
+  />
+</div>
 <h1 class="">This is my index page</h1>
 <p>
   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam blanditiis
   sint eveniet, nulla voluptas eaque asperiores rerum porro consectetur a. Culpa
   totam delectus dolore numquam, vel beatae ipsam odio ab.
 </p>
-{% if user.is_authenticated %}
-<div class="bg-white rounded-lg shadow-lg p-8">
-  <dl class="flex flex-col gap-y-2">
-    <div>
-      <dt>Username:</dt>
-      <dd>{{user.username}}</dd>
-    </div>
-    <div>
-      <dt>Name:</dt>
-      <dd>{{user.first_name}} {{user.last_name}}</dd>
-    </div>
-    <div>
-      <dt>Email:</dt>
-      <dd>{{user.email}}</dd>
-    </div>
-  </dl>
-</div>
-{% endif %} {% endblock %}
+{% endblock %}
