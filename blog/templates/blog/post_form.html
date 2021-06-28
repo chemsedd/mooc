@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="flex flex-col gap-y-2 items-center justify-center">
+    <h2>Post Edit</h2>
+        <form class="flex flex-col" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="">Blog Post</legend>
+                {{ form }}
+            </fieldset>
+            <div class="flex">
+                <button class="btn btn-green" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
