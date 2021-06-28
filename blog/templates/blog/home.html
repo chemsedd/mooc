@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+<div class="w-10/12 flex items-center">
+  <div class="w-1/2 flex flex-col gap-y-4">
+    {% for post in posts %}
+    <article
+      class="bg-white p-4 rounded-lg border border-gray-900 border-opacity-30"
+    >
+      <img
+        class="rounded-full w-1/2 h-1/2"
+        src="{{ post.author.profile.image.url }}"
+      />
+      <div class="">
+        <div class="flex items-center gap-x-4">
+          <a
+            class="text-blue-600"
+            href="{% url 'user-posts' post.author.username %}"
+            >{{ post.author }}</a
+          >
+          <small class="text-gray-500"
+            >{{ post.date_posted|date:"F d, Y" }}</small
+          >
+        </div>
+        <hr class="my-2" />
+        <h2>
+          <a class="" href="{% url 'post-detail' post.id %}"
+            >{{ post.title }}</a
+          >
+        </h2>
+        <p>{{ post.content }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

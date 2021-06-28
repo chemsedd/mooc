@@ -240,19 +240,12 @@ def index(request):
     return render(request, 'index.html', {})
 
 
-# user object
-USER = None
-
-
 def login_user(request):
-    global USER
-
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            USER = user
             login(request, user)
             messages.success(request, 'You have successfully logged in')
             return redirect("index")
@@ -272,5 +265,4 @@ def logout_user(request):
 
 @login_required
 def profile(request):
-    global USER
-    return render(request, "profile.html", {"user": USER})
+    return render(request, "profile.html", {})
