@@ -13,13 +13,16 @@
 >
   <a class="font-bold" href="{% url 'index' %}">Quiz App</a>
   <div class="inline-flex items-center justify-end">
-    <ul class="inline-flex items-center divide-x-2 divide-opacity-50 divide-gray-500">
+    <ul id="navbar-ul" class="inline-flex items-center divide-x-2 divide-opacity-50 divide-gray-500">
       {% if user.is_authenticated %}
       <li class="nav-item">
         <a href="{% url 'quiz_index' %}" class="nav-link">Quizzes</a>
       </li>
       <li class="nav-item">
         <a href="{% url 'quiz_progress' %}" class="nav-link">Progress</a>
+      </li>
+       <li class="nav-item">
+        <a href="{% url 'blog-home' %}" class="nav-link">Blog</a>
       </li>
       <li class="nav-item">
         <a href="{% url 'profile' %}" class="nav-link">Profile</a>
