@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <article class="post-article w-full">
+  {% comment %}  {{ object.author.profile.image.url }} {% endcomment %}
+    <img class="rounded-full w-20 h-20" src="{% static 'blog/img/user.jpg' %}">
+    <div class="w-full">
+      <div class="w-full inline-flex items-center justify-between whitespace-nowrap gap-x-4">
+        <a class="link" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+        <small class="text-gray-500">{{ object.date_posted|date:"F d, Y" }}</small>
+        {% if object.author == user %}
+          <div class="w-full inline-flex justify-end gap-x-4">
+            <a class="btn btn-blue" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="btn btn-red" href="{% url 'post-delete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+      <hr class="my-2">
+      <h2 class="font-semibold">{{ object.title }}</h2>
+      <p>{{ object.content }}</p>
+    </div>
+  </article>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="flex flex-col gap-y-2 items-center justify-center">
+        <form class="flex flex-col gap-2" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend class="mb-2">Delete Post</legend>
+                <h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+            </fieldset>
+            <div class="flex gap-x-2">
+                <button class="btn btn-red" type="submit">Yes, Delete</button>
+                <a class="btn btn-gray" href="{% url 'post-detail' object.id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

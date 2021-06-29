@@ -21,11 +21,16 @@
 
   /* Inputs */
 
-  input {
+  input, textarea {
     @apply text-gray-900 font-medium px-4 py-2;
     @apply border border-gray-300 rounded-lg;
 
     @apply focus:border-transparent focus:outline-none focus:ring;
+  }
+
+  /* Label */
+  form label {
+    @apply text-sm text-gray-600 mb-2;
   }
 
   /* Description lists */
@@ -85,6 +90,10 @@
     @apply bg-lime-600 hover:bg-lime-800 text-white;
   }
 
+  .btn-gray {
+    @apply bg-gray-400 hover:bg-gray-600 text-gray-900;
+  }
+
   .link {
     @apply text-blue-500 underline;
   }
@@ -105,5 +114,16 @@
 
   .card-green-border {
     @apply card border-b-4 border-green-600;
+  }
+
+  .post-article {
+    @apply flex gap-x-4;
+    @apply bg-white p-4 rounded-lg;
+    @apply border border-gray-900 border-opacity-30;
+  }
+
+  .link {
+    @apply text-blue-500;
+    @apply hover:text-blue-700 hover:underline;
   }
 }
